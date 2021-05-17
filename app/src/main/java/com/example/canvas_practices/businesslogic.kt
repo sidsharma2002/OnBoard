@@ -6,15 +6,13 @@ import com.example.canvas_practices.pieces.Pieces_moves
 
 class businesslogic(context: Context) {
 
-    private var player  = Pieces_moves(1,1)
-    private var bot = Pieces_moves(7,7)
-    private var optimalmove_bot = Pieces_moves(0,0)
-    //private var boardview = CustomView(context)
+    private val start_coordiante  : Int = R.integer.start_coordinate
+    private val end_coordinate  : Int = R.integer.end_coordinate
 
-    init {
-       // boardview.updateboard(player, bot)
-      //  boardview.invalidate()
-    }
+    private var player  = Pieces_moves(start_coordiante , start_coordiante)
+    private var bot = Pieces_moves(end_coordinate, end_coordinate)
+    private var optimalmove_bot = Pieces_moves(0,0)
+
 
     fun  changepositions(PLAYER_ADDTOROW: Int, PLAYER_ADDTOCOL: Int , BoardView : CustomView) {
         // move player
@@ -29,7 +27,6 @@ class businesslogic(context: Context) {
         //update UI
         BoardView.updateboard(player, bot)
         BoardView.invalidate()
-
     }
 
         private fun optimalmovebot_function( player : Pieces_moves, bot : Pieces_moves) : Pieces_moves{

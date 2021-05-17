@@ -7,7 +7,9 @@ import android.graphics.Color
 import android.graphics.Paint
 import android.util.AttributeSet
 import android.view.View
+import com.example.canvas_practices.R
 import com.example.canvas_practices.pieces.Pieces_moves
+import  com.example.canvas_practices.businesslogic
 
 class CustomView @JvmOverloads constructor(
     context: Context,
@@ -20,6 +22,8 @@ class CustomView @JvmOverloads constructor(
     private var whitespace_Paint = Paint()
     private lateinit var player : Pieces_moves
     private  lateinit var bot : Pieces_moves
+    private val start_coordinate  : Int = R.integer.start_coordinate
+    private val end_coordinate  : Int = R.integer.end_coordinate
 
     init {
         player_Paint.setColor(Color.CYAN)
@@ -30,6 +34,7 @@ class CustomView @JvmOverloads constructor(
 
         whitespace_Paint.setColor(Color.WHITE)
         whitespace_Paint.strokeWidth = 15F
+
     }
 
     fun updateboard( player : Pieces_moves , bot : Pieces_moves ) {
@@ -41,7 +46,17 @@ class CustomView @JvmOverloads constructor(
     override fun onDraw(canvas: Canvas?) {
         super.onDraw(canvas)
         // Draw all the pieces and whitespace
-        canvas?.drawRect(100F,100F,200F, 200F,player_Paint)
+        drawBoard(canvas)
+    }
+
+    private fun drawBoard(canvas: Canvas?) {
+        // for row
+        for( i in 1..8) {
+            // for col
+            //for( j in 1..8 ){
+            canvas?.drawRect((100*i).toFloat() + 25F, 100F , (100*(i+1)).toFloat() + 25F,200F , whitespace_Paint)
+            //}
+        }
     }
 
 
