@@ -20,8 +20,8 @@ class CustomView @JvmOverloads constructor(
     private var player_Paint  = Paint()
     private var bot_Paint = Paint()
     private var whitespace_Paint = Paint()
-    private lateinit var player : Pieces_moves
-    private  lateinit var bot : Pieces_moves
+    private  var player  = Pieces_moves(1,1)
+    private   var bot = Pieces_moves(8,8)
     private val start_coordinate  : Int = R.integer.start_coordinate
     private val end_coordinate  : Int = R.integer.end_coordinate
 
@@ -34,7 +34,6 @@ class CustomView @JvmOverloads constructor(
 
         whitespace_Paint.setColor(Color.WHITE)
         whitespace_Paint.strokeWidth = 15F
-
     }
 
     fun updateboard( player : Pieces_moves , bot : Pieces_moves ) {
@@ -47,6 +46,12 @@ class CustomView @JvmOverloads constructor(
         super.onDraw(canvas)
         // Draw all the pieces and whitespace
         drawBoard(canvas)
+        drawpieces(canvas)
+    }
+
+    private fun drawpieces(canvas: Canvas?) {
+           canvas?.drawRect((100*player.row).toFloat() + 25F , 100F , (100*(player.row+1)).toFloat() + 25F, 200F , player_Paint   )
+           canvas?.drawRect((100*bot.row).toFloat() + 25F , 100F , (100*(bot.row+1)).toFloat() + 25F, 200F , bot_Paint   )
     }
 
     private fun drawBoard(canvas: Canvas?) {
