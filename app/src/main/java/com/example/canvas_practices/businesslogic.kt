@@ -9,11 +9,11 @@ class businesslogic(context: Context) {
     private var player  = Pieces_moves(1,1)
     private var bot = Pieces_moves(7,7)
     private var optimalmove_bot = Pieces_moves(0,0)
-    private var boardview = CustomView(context)
+    //private var boardview = CustomView(context)
 
     init {
-        boardview.updateboard(player, bot)
-        boardview.invalidate()
+       // boardview.updateboard(player, bot)
+      //  boardview.invalidate()
     }
 
     fun  changepositions(PLAYER_ADDTOROW: Int, PLAYER_ADDTOCOL: Int) {
@@ -27,8 +27,8 @@ class businesslogic(context: Context) {
         bot = optimalmove_bot
 
         //update UI
-        boardview.updateboard(player, bot)
-        boardview.invalidate()
+        //boardview.updateboard(player, bot)
+        //boardview.invalidate()
 
     }
 
