@@ -19,7 +19,6 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun onleft_clicked(view : View) {
-                gamelogic.changepositions(PLAYER_MOVEDLEFT, PLAYER_STILL , BoardView)
-               // BoardView.invalidate()
+                gamelogic.changepositions(PLAYER_MOVEDLEFT, PLAYER_STILL , BoardView , view)
     }
 }
