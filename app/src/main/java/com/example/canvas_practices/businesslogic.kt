@@ -16,7 +16,7 @@ class businesslogic(context: Context) {
       //  boardview.invalidate()
     }
 
-    fun  changepositions(PLAYER_ADDTOROW: Int, PLAYER_ADDTOCOL: Int) {
+    fun  changepositions(PLAYER_ADDTOROW: Int, PLAYER_ADDTOCOL: Int , BoardView : CustomView) {
         // move player
         player.row += PLAYER_ADDTOROW
         player.col += PLAYER_ADDTOCOL
@@ -27,8 +27,8 @@ class businesslogic(context: Context) {
         bot = optimalmove_bot
 
         //update UI
-        //boardview.updateboard(player, bot)
-        //boardview.invalidate()
+        BoardView.updateboard(player, bot)
+        BoardView.invalidate()
 
     }
 
