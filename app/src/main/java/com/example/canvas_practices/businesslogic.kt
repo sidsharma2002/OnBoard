@@ -3,6 +3,7 @@ package com.example.canvas_practices
 import android.content.Context
 import android.view.View
 import android.widget.Button
+import com.example.canvas_practices.GameEngine.engine_checkend
 import com.example.canvas_practices.graphics.CustomView
 import com.example.canvas_practices.pieces.Pieces_moves
 
@@ -23,6 +24,12 @@ class businesslogic(context: Context) {
 
         // check for  GAME END!
         //TODO("ADD GAME END FUNCTION")
+        val  check_gameend  = engine_checkend()
+        val winner = check_gameend.check_gamend(player, bot)
+        if(winner !=0){
+            //TODO("implement alert box")
+        }
+
 
         //button visibility setter function
         check_buttonvisibilty(player , buttonR)
@@ -39,7 +46,7 @@ class businesslogic(context: Context) {
 
     private fun check_buttonvisibilty(player: Pieces_moves , buttonR: View) {
                 if(player.row == end_coordinate){
-                        buttonR.visibility = Button.INVISIBLE
+                        //buttonR.visibility = Button.INVISIBLE
                 }
     }
 
