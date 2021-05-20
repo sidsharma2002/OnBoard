@@ -1,5 +1,3 @@
 <resources>
     <string name="app_name">Canvas_practices</string>
-    <integer name="start_coordinate">1</integer>
-    <integer name="end_coordinate">8</integer>
 </resources>
