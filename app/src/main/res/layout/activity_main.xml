@@ -14,7 +14,7 @@
             android:id="@+id/BoardView"
             android:layout_width="match_parent"
             android:layout_height="450sp" />
-
+        <!--      TODO("Make a Button_Leftmove")      -->
         <ImageButton
             android:id="@+id/Button_Rightmove"
             android:layout_marginTop="30sp"
@@ -22,8 +22,8 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:src="@drawable/ic_baseline_navigate_next_24"
-            android:background="@color/offwhite"/>
-<!--            android:onClick="onleft_clicked"/>-->
+            android:background="@color/offwhite"
+            android:contentDescription="@string/contentdesc_buttonRmove"/>
     </LinearLayout>
 
 
