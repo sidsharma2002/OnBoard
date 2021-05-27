@@ -46,20 +46,26 @@ class CustomView @JvmOverloads constructor(
 
     private fun drawpieces(canvas: Canvas?) {
         //TODO("modify WRT column")
-           canvas?.drawRect((100*player.row).toFloat() + 25F , 100F , (100*(player.row+1)).toFloat() + 25F, 200F , player_Paint   )
-           canvas?.drawRect((100*bot.row).toFloat() + 25F , 100F , (100*(bot.row+1)).toFloat() + 25F, 200F , bot_Paint   )
+           canvas?.drawRect((100*player.col).toFloat() + 25F , (100*player.row).toFloat() , (100*(player.col+1)).toFloat() + 25F, (100*(player.row+1)).toFloat() , player_Paint   )
+           canvas?.drawRect((100*bot.col).toFloat() + 25F , (100*bot.row).toFloat() , (100*(bot.col+1)).toFloat() + 25F, (100*(bot.row+1)).toFloat() , bot_Paint   )
     }
 
     private fun drawBoard(canvas: Canvas?) {
         //TODO("modify for 2D board")
         // for row
-        for( i in 1..8) {
+        for (i in 1..8) {
             // for col
-            //for( j in 1..8 ){
-            canvas?.drawRect((100*i).toFloat() + 25F, 100F , (100*(i+1)).toFloat() + 25F,200F , whitespace_Paint)
-            //}
+            for (j in 1..8) {
+                canvas?.drawRect(
+                    (100 * i).toFloat() + 25F,
+                    (100 * j).toFloat(),
+                    (100 * (i + 1)).toFloat() + 25F,
+                    (100 * (j + 1)).toFloat(),
+                    whitespace_Paint
+                )
+                //}
+            }
         }
     }
-
 
 }

@@ -2,7 +2,6 @@ package com.example.canvas_practices
 
 import android.content.Context
 import android.view.View
-import android.widget.Button
 import android.widget.ImageButton
 import com.example.canvas_practices.GameEngine.BOT_OPTIMALMOVE
 import com.example.canvas_practices.GameEngine.engine_checkend
@@ -16,7 +15,7 @@ class businesslogic(context: Context) {
     private var optimalmove_bot = Pieces_moves(0,0)
     private val  BOT_OPTIMALMOVE = BOT_OPTIMALMOVE()
 
-    fun  changepositions(PLAYER_ADDTOROW: Int, PLAYER_ADDTOCOL: Int , BoardView : CustomView , buttonR: ImageButton) {
+    fun  changepositions(PLAYER_ADDTOROW: Int, PLAYER_ADDTOCOL: Int , BoardView : CustomView , button: ImageButton, is_Rmove: Boolean) {
         // step 1
         // move player
         player.row += PLAYER_ADDTOROW
@@ -30,23 +29,41 @@ class businesslogic(context: Context) {
             //TODO("implement alert box")
         }
         // Button visibility setter function
-       check_buttonvisibilty(player , buttonR)
+        check_buttonvisibilty(player , button, is_Rmove)
 
         // step 3
         // Find optimal move
-        optimalmove_bot = BOT_OPTIMALMOVE.find(player, bot)
-        bot = optimalmove_bot
+      //  optimalmove_bot = BOT_OPTIMALMOVE.find(player, bot)
+      //  bot = optimalmove_bot
+            bot = fake_botmove(bot)
 
         // step 4
         // Update UI
         BoardView.updateboard(player, bot)
         BoardView.invalidate()
     }
+
+    private fun fake_botmove(bot: Pieces_moves): Pieces_moves {
+
+        lateinit var fakemove : Pieces_moves
+        if(bot.col ==1 && bot.row==1) {
+            fakemove =  Pieces_moves(bot.row,bot.col)
+        }
+        else{
+                fakemove = Pieces_moves(bot.row-1,bot.col-1)
+        }
+        return fakemove
+    }
+
     // Disables Button if necessary
-    private fun check_buttonvisibilty(player: Pieces_moves , buttonR: ImageButton) {
-                if(player.row == 8){
-                      buttonR.visibility = View.INVISIBLE
-                      buttonR.invalidate()
+    private fun check_buttonvisibilty(player: Pieces_moves , button: ImageButton , is_Rmove: Boolean) {
+                if(player.col== 8 && is_Rmove){
+                      button.visibility = View.INVISIBLE
+                      button.invalidate()
+                }
+                if(player.row==8 && !is_Rmove){
+                    button.visibility = View.INVISIBLE
+                    button.invalidate()
                 }
     }
 }

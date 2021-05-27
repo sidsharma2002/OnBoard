@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Canvas_practices</string>
     <string name="contentdesc_buttonRmove">button to move right</string>
+    <string name="contentdesc_buttonL">moves player to right</string>
 </resources>

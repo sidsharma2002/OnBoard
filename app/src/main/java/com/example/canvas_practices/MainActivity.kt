@@ -13,9 +13,11 @@ class MainActivity : AppCompatActivity() {
       //TODO(" code Button_Leftmove")
       private val gamelogic  = businesslogic(this)
       private val PLAYER_MOVEDLEFT : Int = 1
+      private val PLAYER_MOVEDDOWN : Int = 1
       private val PLAYER_STILL : Int = 0
       private lateinit var BoardView  : CustomView
       private lateinit var Button_Rightmove : ImageButton
+      private lateinit var Button_Downmove : ImageButton
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,9 +25,14 @@ class MainActivity : AppCompatActivity() {
         // initialize Views and Variables
         BoardView = findViewById(R.id.BoardView)
         Button_Rightmove = findViewById(R.id.Button_Rightmove)
-        // call change position logic when button is clicked
+        Button_Downmove = findViewById(R.id.Button_Downmove)
+        // call change position logic when Rbutton is clicked
         Button_Rightmove.setOnClickListener {
-               gamelogic.changepositions(PLAYER_MOVEDLEFT, PLAYER_STILL , BoardView , Button_Rightmove)
+               gamelogic.changepositions(PLAYER_STILL ,PLAYER_MOVEDLEFT ,BoardView , Button_Rightmove, true)
+        }
+        // call change position logic when Dbutton is clicked
+        Button_Downmove.setOnClickListener {
+            gamelogic.changepositions(PLAYER_MOVEDDOWN, PLAYER_STILL , BoardView , Button_Downmove, false)
         }
     }
 
