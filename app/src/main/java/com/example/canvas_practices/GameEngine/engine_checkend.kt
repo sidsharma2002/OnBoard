@@ -18,7 +18,7 @@ import kotlin.math.abs
             return 1
         }
 
-        if(player.row==bot.row && bot.col-player.col>1 && player.row!=8 && !isbot){
+        if(player.row==bot.row && bot.col-player.col>1 && player.row!=8 && isbot==0){
             if(isbot==1) return -1
             return 1
         }

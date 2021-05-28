@@ -24,7 +24,8 @@ class businesslogic(context: Context) {
         // step 2
         // check for  GAME END!
         val  check_gameend  = engine_checkend()
-        val winner = check_gameend.check_gamend(player, bot)
+        //TODO("correct the logic of below line ")
+        val winner = check_gameend.check_gameend(player, bot,)
         if(winner !=0){
             //TODO("implement alert box")
         }
