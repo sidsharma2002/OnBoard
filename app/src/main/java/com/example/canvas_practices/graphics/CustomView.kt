@@ -24,9 +24,9 @@ class CustomView @JvmOverloads constructor(
     private   var bot = Pieces_moves(8,8)
     init {
         // Setting properties of all thePaint()
-        player_Paint.setColor(Color.CYAN)
+        player_Paint.setColor(Color.DKGRAY)
         player_Paint.strokeWidth = 15F
-        bot_Paint.setColor(Color.MAGENTA)
+        bot_Paint.setColor(Color.BLUE)
         bot_Paint.strokeWidth = 15F
         whitespace_Paint.setColor(Color.WHITE)
         whitespace_Paint.strokeWidth = 15F

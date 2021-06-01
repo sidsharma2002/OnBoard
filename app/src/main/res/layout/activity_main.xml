@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,6 +8,10 @@
     tools:context=".MainActivity"
     android:background="@color/offwhite">
 
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -21,21 +26,30 @@
 
         <com.example.canvas_practices.graphics.CustomView
             android:id="@+id/BoardView"
-            android:layout_marginTop="170sp"
-            android:layout_width="match_parent"
+            android:layout_marginTop="160sp"
+            android:layout_width="wrap_content"
             android:layout_height="350sp"
             android:elevation="30sp"/>
 
     </FrameLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_gravity="center"
+                android:layout_marginTop="20sp"
+                android:elevation="15sp">
         <ImageButton
             android:id="@+id/Button_Rightmove"
-            android:layout_marginTop="20sp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:src="@drawable/ic_baseline_navigate_next_24"
-            android:background="@color/offwhite"
-            android:contentDescription="@string/contentdesc_buttonRmove"/>
+            android:layout_marginTop="0sp"
+            android:background="@color/cardview_dark_background"
+            android:contentDescription="@string/contentdesc_buttonRmove"
+            android:src="@drawable/ic_baseline_navigate_next_24" />
+
         <ImageButton
             android:id="@+id/Button_Downmove"
             android:layout_marginTop="0sp"
@@ -43,7 +57,22 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:src="@drawable/ic_baseline_keyboard_arrow_down_24"
-            android:background="@color/offwhite"
+            android:background="@color/cardview_dark_background"
             android:contentDescription="@string/contentdesc_buttonL"/>
-        </LinearLayout>
-    </RelativeLayout>
+            </LinearLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="500sp">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="scolled"
+        android:textColor="@color/black"
+        android:textSize="30sp"
+        android:layout_gravity="center"/>
+
+    </LinearLayout>
+</LinearLayout>
+
+    </ScrollView>

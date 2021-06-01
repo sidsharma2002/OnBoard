@@ -25,10 +25,10 @@ class businesslogic(context: Context) {
         // check for  GAME END!
         val  check_gameend  = engine_checkend()
         //TODO("correct the logic of below line ")
-        val winner = check_gameend.check_gameend(player, bot,)
-        if(winner !=0){
+        // val winner = check_gameend.check_gameend(player, bot,)
+        //if(winner !=0){
             //TODO("implement alert box")
-        }
+        //}
         // Button visibility setter function
         check_buttonvisibilty(player , button, is_Rmove)
 
