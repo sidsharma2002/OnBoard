@@ -3,10 +3,17 @@ package com.example.canvas_practices
 import android.content.Context
 import android.view.View
 import android.widget.ImageButton
+import android.widget.LinearLayout
+import android.widget.ScrollView
+import android.widget.Toast
 import com.example.canvas_practices.GameEngine.BOT_OPTIMALMOVE
 import com.example.canvas_practices.GameEngine.engine_checkend
 import com.example.canvas_practices.graphics.CustomView
 import com.example.canvas_practices.pieces.Pieces_moves
+import com.google.android.material.snackbar.Snackbar
+
+
+
 
 class businesslogic(context: Context) {
     // Gobal Variables
@@ -14,8 +21,9 @@ class businesslogic(context: Context) {
     private var bot = Pieces_moves(8, 8)
     private var optimalmove_bot = Pieces_moves(0,0)
     private val  BOT_OPTIMALMOVE = BOT_OPTIMALMOVE()
+    private val context = context
 
-    fun  changepositions(PLAYER_ADDTOROW: Int, PLAYER_ADDTOCOL: Int , BoardView : CustomView , button: ImageButton, is_Rmove: Boolean) {
+    fun  changepositions(PLAYER_ADDTOROW: Int, PLAYER_ADDTOCOL: Int , BoardView : CustomView ,scrollView: LinearLayout ,button: ImageButton, is_Rmove: Boolean) {
         // step 1
         // move player
         player.row += PLAYER_ADDTOROW
@@ -24,19 +32,18 @@ class businesslogic(context: Context) {
         // step 2
         // check for  GAME END!
         val  check_gameend  = engine_checkend()
-        //TODO("correct the logic of below line ")
-        // val winner = check_gameend.check_gameend(player, bot,)
-        //if(winner !=0){
-            //TODO("implement alert box")
-        //}
+         val winner = check_gameend.check_gameend1(player, bot)
+        if(winner !=0){
+
+        }
         // Button visibility setter function
         check_buttonvisibilty(player , button, is_Rmove)
 
         // step 3
         // Find optimal move
-      //  optimalmove_bot = BOT_OPTIMALMOVE.find(player, bot)
-      //  bot = optimalmove_bot
-            bot = fake_botmove(bot)
+          optimalmove_bot = BOT_OPTIMALMOVE.find(player, bot)
+          bot = optimalmove_bot
+        //bot = fake_botmove(bot)
 
         // step 4
         // Update UI

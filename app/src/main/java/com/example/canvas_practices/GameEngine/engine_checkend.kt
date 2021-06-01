@@ -22,7 +22,13 @@ import kotlin.math.abs
             if(isbot==1) return -1
             return 1
         }
-        return 0;
-
+        return 0
     }
-}
+
+     fun check_gameend1(player: Pieces_moves, bot: Pieces_moves):Int {
+         if(player.row==8 && player.col==8) return 1 //player wins
+         else if(bot.row==player.row && player.col+1==bot.col) return -1 // bot wins
+         else if(bot.col==player.col && player.row+1==bot.row) return -1 // bot wins
+         return 0
+     }
+ }
