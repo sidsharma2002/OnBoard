@@ -29,7 +29,7 @@
             android:id="@+id/BoardView"
             android:layout_marginTop="160sp"
             android:layout_width="wrap_content"
-            android:layout_height="350sp"
+            android:layout_height="400dp"
             android:elevation="30sp"/>
 
     </FrameLayout>
@@ -39,7 +39,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:layout_gravity="center"
-                android:layout_marginTop="10sp"
+                android:layout_marginTop="8sp"
                 android:elevation="15sp">
         <ImageButton
             android:id="@+id/Button_Rightmove"

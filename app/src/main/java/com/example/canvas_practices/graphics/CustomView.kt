@@ -1,15 +1,13 @@
 package com.example.canvas_practices.graphics
 
 import android.content.Context
-import android.graphics.Bitmap
 import android.graphics.Canvas
 import android.graphics.Color
 import android.graphics.Paint
+import android.graphics.Rect
 import android.util.AttributeSet
 import android.view.View
-import com.example.canvas_practices.R
 import com.example.canvas_practices.pieces.Pieces_moves
-import  com.example.canvas_practices.businesslogic
 
 class CustomView @JvmOverloads constructor(
     context: Context,
@@ -20,6 +18,7 @@ class CustomView @JvmOverloads constructor(
     private var player_Paint  = Paint()
     private var bot_Paint = Paint()
     private var whitespace_Paint = Paint()
+    private var  value_Paint = Paint()
     private  var player  = Pieces_moves(1,1)
     private   var bot = Pieces_moves(8,8)
     init {
@@ -30,6 +29,9 @@ class CustomView @JvmOverloads constructor(
         bot_Paint.strokeWidth = 15F
         whitespace_Paint.setColor(Color.WHITE)
         whitespace_Paint.strokeWidth = 15F
+        value_Paint.setColor(Color.BLACK)
+        value_Paint.strokeWidth = 15F
+        value_Paint.textSize = 30F
     }
     // function to update pieces position
     fun updateboard( player : Pieces_moves , bot : Pieces_moves ) {
@@ -45,25 +47,26 @@ class CustomView @JvmOverloads constructor(
     }
 
     private fun drawpieces(canvas: Canvas?) {
-        //TODO("modify WRT column")
+
            canvas?.drawRect((100*player.col).toFloat() + 25F , (100*player.row).toFloat() , (100*(player.col+1)).toFloat() + 25F, (100*(player.row+1)).toFloat() , player_Paint   )
            canvas?.drawRect((100*bot.col).toFloat() + 25F , (100*bot.row).toFloat() , (100*(bot.col+1)).toFloat() + 25F, (100*(bot.row+1)).toFloat() , bot_Paint   )
     }
 
     private fun drawBoard(canvas: Canvas?) {
-        //TODO("modify for 2D board")
-        // for row
+
         for (i in 1..8) {
             // for col
             for (j in 1..8) {
-                canvas?.drawRect(
-                    (100 * i).toFloat() + 25F,
-                    (100 * j).toFloat(),
-                    (100 * (i + 1)).toFloat() + 25F,
-                    (100 * (j + 1)).toFloat(),
-                    whitespace_Paint
+
+                val rect = Rect(
+                    ((100 * i)+ 25),
+                    (100 * j),
+                    ((100 * (i + 1)) + 25),
+                    (100 * (j + 1))
                 )
-                //}
+
+                canvas?.drawRect(rect,whitespace_Paint)
+                canvas?.drawText("20", rect.centerX().toFloat()-20F , rect.centerY().toFloat() ,value_Paint)
             }
         }
     }

@@ -2,10 +2,21 @@ package com.example.canvas_practices.GameEngine
 
 import android.R.bool
 import com.example.canvas_practices.pieces.Pieces_moves
+import com.google.firebase.ktx.Firebase
+
+
+import com.google.firebase.perf.ktx.performance
+import  com.google.firebase.perf.ktx.trace
+
+val myTrace = Firebase.performance.newTrace("test_trace")
+
+// code that you want to trace
+
 
 
 class BOT_OPTIMALMOVE{
         //Global Variables
+
         private  lateinit var player: Pieces_moves
         private lateinit var bot : Pieces_moves
         private  var bot_optimalmove = Pieces_moves(0,0)
@@ -21,12 +32,13 @@ class BOT_OPTIMALMOVE{
         }
 
         private fun optimalmove(player: Pieces_moves, bot: Pieces_moves): Pieces_moves {
-
+                myTrace.start()
             val bestmove_row: Boolean = minimax(player, Pieces_moves(bot.row - 1, bot.col), 0)
             if (bestmove_row) return Pieces_moves(bot.row - 1, bot.col)
 
             val bestmove_col: Boolean = minimax(player, Pieces_moves(bot.row, bot.col - 1), 0)
             return if (bestmove_col) Pieces_moves(bot.row, bot.col - 1) else bot
+            myTrace.stop()
             return bot
         }
 
@@ -49,4 +61,5 @@ class BOT_OPTIMALMOVE{
                 return true;
             }
     }
+
 }
