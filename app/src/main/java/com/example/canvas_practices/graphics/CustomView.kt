@@ -7,7 +7,9 @@ import android.graphics.Paint
 import android.graphics.Rect
 import android.util.AttributeSet
 import android.view.View
+import com.example.canvas_practices.cache.Values
 import com.example.canvas_practices.pieces.Pieces_moves
+import kotlin.math.abs
 
 class CustomView @JvmOverloads constructor(
     context: Context,
@@ -21,6 +23,9 @@ class CustomView @JvmOverloads constructor(
     private var  value_Paint = Paint()
     private  var player  = Pieces_moves(1,1)
     private   var bot = Pieces_moves(8,8)
+    private  var  arr = Array(9){r ->
+        IntArray(9) { c -> (0..10).random() } }
+
     init {
         // Setting properties of all thePaint()
         player_Paint.setColor(Color.DKGRAY)
@@ -32,9 +37,12 @@ class CustomView @JvmOverloads constructor(
         value_Paint.setColor(Color.BLACK)
         value_Paint.strokeWidth = 15F
         value_Paint.textSize = 30F
+        value_Paint.isAntiAlias = true
+
+       // this.board_values = values.board_values
     }
     // function to update pieces position
-    fun updateboard( player : Pieces_moves , bot : Pieces_moves ) {
+    fun updateboard(player: Pieces_moves, bot: Pieces_moves) {
             this.player = player
             this.bot = bot
     }
@@ -57,16 +65,14 @@ class CustomView @JvmOverloads constructor(
         for (i in 1..8) {
             // for col
             for (j in 1..8) {
-
                 val rect = Rect(
                     ((100 * i)+ 25),
                     (100 * j),
                     ((100 * (i + 1)) + 25),
                     (100 * (j + 1))
                 )
-
                 canvas?.drawRect(rect,whitespace_Paint)
-                canvas?.drawText("20", rect.centerX().toFloat()-20F , rect.centerY().toFloat() ,value_Paint)
+                canvas?.drawText(arr[i][j].toString() , rect.centerX().toFloat()-20F , rect.centerY().toFloat() ,value_Paint)
             }
         }
     }

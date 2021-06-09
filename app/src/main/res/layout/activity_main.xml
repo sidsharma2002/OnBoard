@@ -29,7 +29,7 @@
             android:id="@+id/BoardView"
             android:layout_marginTop="160sp"
             android:layout_width="wrap_content"
-            android:layout_height="400dp"
+            android:layout_height="350dp"
             android:elevation="30sp"/>
 
     </FrameLayout>
@@ -39,7 +39,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:layout_gravity="center"
-                android:layout_marginTop="8sp"
+                android:layout_marginTop="0sp"
                 android:elevation="15sp">
         <ImageButton
             android:id="@+id/Button_Rightmove"
@@ -62,10 +62,73 @@
             android:contentDescription="@string/contentdesc_buttonL"/>
             </LinearLayout>
     </LinearLayout>
-    <LinearLayout
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_marginTop="40sp"
         android:layout_width="match_parent"
-        android:layout_height="500sp">
-    </LinearLayout>
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="30sp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.17"
+            android:layout_marginStart="46sp">
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="player"
+                android:textColor="@color/cardview_dark_background"
+                android:textSize="30sp" />
+
+            <TextView
+                android:id="@+id/TextView_playerscore"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="0"
+                android:layout_marginTop="8sp"
+                android:textColor="@color/cardview_dark_background"
+                android:textSize="30sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.17"
+            android:layout_marginEnd="46sp">
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="bot"
+                android:textColor="@color/cardview_dark_background"
+                android:textSize="30sp" />
+
+            <TextView
+                android:id="@+id/TextView_botscore"
+                android:layout_marginTop="8sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="0"
+                android:textColor="@color/cardview_dark_background"
+                android:textSize="30sp" />
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </LinearLayout>
 
     </ScrollView>
